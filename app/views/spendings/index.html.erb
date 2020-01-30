@@ -1,0 +1,24 @@
+<% @page_title = "支出科目一覧" %>
+<h2><%= @page_title %></h2>
+
+<% if @spendings.present? %>
+<table>
+	<thead>
+		<tr>
+			<th>科目名</th>
+			<th>備考</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @spendings.each do |spending| %>
+			<tr>
+				<td><%= spending.name %></td>
+				<td><%= spending.description %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<% else %>
+	<p>登録されている支出科目がありません。</p>
+<% end %>
