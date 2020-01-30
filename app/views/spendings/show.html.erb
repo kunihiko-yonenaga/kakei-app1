@@ -1,0 +1,17 @@
+<h2>支出科目の詳細</h2>
+
+<%= link_to "編集", [:edit, @spending] %>
+<%= link_to "支出科目一覧へ戻る", :spendings %>
+
+<table>
+
+	<tr>
+    <th>名称</th>
+    <td><%= @spending.name %></td>
+  </tr>
+
+	<tr>
+		<th>内容</th>
+		<td><%= @spending.description %></td>
+	</tr>
+</table>
