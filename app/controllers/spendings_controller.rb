@@ -35,7 +35,9 @@ class SpendingsController < ApplicationController
 	end
 
   def destroy
-
+    @spending = Spending.find(params[:id])
+		@spending.destroy
+		redirect_to :spendings, notice: "科目を削除しました。"
   end
 
 end

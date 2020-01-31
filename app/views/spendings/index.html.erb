@@ -1,12 +1,14 @@
-<% @page_title = "支出科目一覧" %>
+<% @page_title = "支出分類一覧" %>
 <h2><%= @page_title %></h2>
 
+<%= link_to "支出分類の新規登録", :new_spending %>
 <% if @spendings.present? %>
 <table>
 	<thead>
 		<tr>
-			<th>科目名</th>
-			<th>備考</th>
+			<th>分類名</th>
+			<th>内容</th>
+      <th>操作一覧</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -14,11 +16,16 @@
 			<tr>
 				<td><%= spending.name %></td>
 				<td><%= spending.description %></td>
+        <td>
+				<%= link_to "編集", [:edit, spending] %>
+        <%= link_to "削除", spending, method: :delete,
+					data: { confirm: "本当に削除しますか？"} %>
+				</td>
 			</tr>
 		<% end %>
 	</tbody>
 </table>
 
 <% else %>
-	<p>登録されている支出科目がありません。</p>
+	<p>登録されている支出分類がありません。</p>
 <% end %>
